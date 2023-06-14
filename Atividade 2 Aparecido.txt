@@ -1,0 +1,337 @@
+1. 
+#include <stdio.h>
+
+int main() {
+    int numeros[10];
+    int totalNegativos = 0;
+    int somaNegativos = 0;
+    float mediaNegativos;
+
+    printf("Digite 10 números:\n");
+
+    for (int i = 0; i < 10; i++) {
+        printf("Número %d: ", i + 1);
+        scanf("%d", &numeros[i]);
+
+        if (numeros[i] < 0) {
+            totalNegativos++;
+            somaNegativos += numeros[i];
+        }
+    }
+
+    printf("\nValores negativos digitados: ");
+    for (int i = 0; i < 10; i++) {
+        if (numeros[i] < 0) {
+            printf("%d ", numeros[i]);
+        }
+    }
+
+    if (totalNegativos > 0) {
+        mediaNegativos = (float)somaNegativos;
+	return 0; 
+}
+
+2-
+#include <stdio.h>
+
+#define TAMANHO_CONJUNTO 10
+
+void calcularQuadrados(float conjuntoOriginal[], float conjuntoQuadrados[])
+{
+    for (int i = 0; i < TAMANHO_CONJUNTO; i++)
+    {
+        conjuntoQuadrados[i] = conjuntoOriginal[i] * conjuntoOriginal[i];
+    }
+}
+
+void imprimirConjunto(float conjunto[], const char *nomeConjunto)
+{
+    printf("%s: ", nomeConjunto);
+    for (int i = 0; i < TAMANHO_CONJUNTO; i++)
+    {
+        printf("%.2f ", conjunto[i]);
+    }
+    printf("\n");
+}
+
+int main()
+{
+    float conjuntoOriginal[TAMANHO_CONJUNTO];
+    float conjuntoQuadrados[TAMANHO_CONJUNTO];
+
+    printf("Digite os %d elementos do conjunto:\n", TAMANHO_CONJUNTO);
+    for (int i = 0; i < TAMANHO_CONJUNTO; i++)
+    {
+        printf("Elemento %d: ", i + 1);
+        scanf("%f", &conjuntoOriginal[i]);
+    }
+
+    calcularQuadrados(conjuntoOriginal, conjuntoQuadrados);
+
+    imprimirConjunto(conjuntoOriginal, "Conjunto Original");
+    imprimirConjunto(conjuntoQuadrados, "Conjunto dos Quadrados");
+
+    return 0;
+}
+
+3- 
+#include <stdio.h>
+
+int main() {
+    int array[8];
+    int x, y;
+
+    // Leitura do array
+    printf("Digite os valores do array:\n");
+    for (int i = 0; i < 8; i++) {
+        printf("Posição %d: ", i);
+        scanf("%d", &array[i]);
+    }
+
+    // Leitura dos valores de X e Y
+    printf("Digite os valores de X e Y:\n");
+    printf("X: ");
+    scanf("%d", &x);
+    printf("Y: ");
+    scanf("%d", &y);
+
+    // Verifica se os valores de X e Y estão dentro do limite do array
+    if (x >= 0 && x < 8 && y >= 0 && y < 8) {
+        // Calcula a soma dos valores nas posições X e Y
+        int soma = array[x] + array[y];
+        printf("A soma dos valores nas posições %d e %d é: %d\n", x, y, soma);
+    } else {
+        printf("Valores de X e/ou Y estão fora do intervalo válido.\n");
+    }
+
+    return 0;
+}
+ 
+4- 
+#include <stdio.h>
+
+int main() {
+    int valores[10];
+    int i;
+
+    printf("Digite 10 valores inteiros:\n");
+
+    // Lendo os valores
+    for (i = 0; i < 10; i++) {
+        printf("Valor %d: ", i + 1);
+        scanf("%d", &valores[i]);
+    }
+
+    printf("\nValores lidos na ordem inversa:\n");
+
+    // Exibindo na ordem inversa
+    for (i = 9; i >= 0; i--) {
+        printf("%d\n", valores[i]);
+    }
+
+    return 0;
+}
+
+5- 
+#include <stdio.h>
+
+#define NUM_ALUNOS 15
+
+int main() {
+    float notas[NUM_ALUNOS];
+    float soma = 0;
+    float media;
+    int abaixo_media = 0;
+    int i;
+
+    // Ler as notas dos alunos
+    for (i = 0; i < NUM_ALUNOS; i++) {
+        printf("Digite a nota do aluno %d: ", i + 1);
+        scanf("%f", &notas[i]);
+        soma += notas[i];
+    }
+
+    // Calcular a média
+    media = soma / NUM_ALUNOS;
+
+    // Verificar quantos alunos estão abaixo da média
+    for (i = 0; i < NUM_ALUNOS; i++) {
+        if (notas[i] < media) {
+            abaixo_media++;
+        }
+    }
+
+    // Imprimir a média e a quantidade de alunos abaixo da média
+    printf("Média geral: %.2f\n", media);
+    printf("Quantidade de alunos abaixo da média: %d\n", abaixo_media);
+
+    return 0;
+}
+
+
+6- 
+#include <stdio.h>
+
+int main() {
+    int array[10];
+    int i, j;
+    int encontrado = 0; // variável para rastrear se valores iguais foram encontrados
+
+    printf("Digite os valores do array:\n");
+
+    // Lendo os valores do array
+    for (i = 0; i < 10; i++) {
+        printf("Posição %d: ", i);
+        scanf("%d", &array[i]);
+    }
+
+    // Verificando se existem valores iguais
+    for (i = 0; i < 10; i++) {
+        for (j = i + 1; j < 10; j++) {
+            if (array[i] == array[j]) {
+                encontrado = 1;
+                printf("Valores iguais encontrados: %d e %d\n", array[i], array[j]);
+            }
+        }
+    }
+
+    if (!encontrado) {
+        printf("Não foram encontrados valores iguais.\n");
+    }
+
+    return 0;
+}
+
+7-
+#include <stdio.h>
+
+int main() {
+    int array[10];
+    int i;
+
+    printf("Digite 10 valores:\n");
+
+    // Leitura dos valores do array
+    for (i = 0; i < 10; i++) {
+        printf("Valor %d: ", i + 1);
+        scanf("%d", &array[i]);
+    }
+
+    // Atribuição de 0 aos elementos negativos
+    for (i = 0; i < 10; i++) {
+        if (array[i] < 0) {
+            array[i] = 0;
+        }
+    }
+
+    printf("Array modificado:\n");
+
+    // Exibição do array modificado
+    for (i = 0; i < 10; i++) {
+        printf("%d ", array[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
+
+
+8- 
+#include <stdio.h>
+
+int main() {
+    int numeros[10];
+    int soma = 0;
+
+    printf("Digite 10 números inteiros maiores que zero:\n");
+
+    // Solicita os números ao usuário e os armazena no array
+    for (int i = 0; i < 10; i++) {
+        printf("Número %d: ", i + 1);
+        scanf("%d", &numeros[i]);
+
+        // Verifica se o número é par e realiza a soma
+        if (numeros[i] % 2 == 0) {
+            soma += numeros[i];
+        }
+    }
+
+    printf("A soma dos números pares é: %d\n", soma);
+
+    return 0;
+}
+
+9-
+#include <stdio.h>
+
+int main() {
+    int numeros[10];
+    int i, soma = 0, contador = 0;
+
+    printf("Digite 10 numeros inteiros maiores que zero:\n");
+
+    for (i = 0; i < 10; i++) {
+        printf("Digite o numero %d: ", i + 1);
+        scanf("%d", &numeros[i]);
+
+        if (numeros[i] > 0) {
+            if (numeros[i] % 2 != 0) {
+                soma += numeros[i];
+                contador++;
+            }
+        } else {
+            printf("Numero invalido! Digite um numero maior que zero.\n");
+            i--; // Decrementa o contador para repetir a leitura do número inválido.
+        }
+    }
+
+    if (contador > 0) {
+        float media = (float)soma / contador;
+        printf("A media aritmetica dos numeros impares e: %.2f\n", media);
+    } else {
+        printf("Nenhum numero impar foi digitado.\n");
+    }
+
+    return 0;
+}
+
+10-
+
+#include <stdio.h>
+
+#define SIZE 10
+
+int main() {
+    int numbers[SIZE];
+    int i;
+
+    printf("Digite 10 números inteiros maiores que zero:\n");
+
+    // Receber os números do usuário e armazená-los no array
+    for (i = 0; i < SIZE; i++) {
+        scanf("%d", &numbers[i]);
+
+        // Atribuir valor 99 para números negativos
+        if (numbers[i] < 0) {
+            numbers[i] = 99;
+        }
+
+        // Atribuir valor 33 para números pares
+        if (numbers[i] % 2 == 0) {
+            numbers[i] = 33;
+        }
+    }
+
+    printf("Valores do array:\n");
+
+    // Imprimir os dados do array
+    for (i = 0; i < SIZE; i++) {
+        printf("%d ", numbers[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
+
